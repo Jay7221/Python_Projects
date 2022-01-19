@@ -1,0 +1,21 @@
+#! python3
+#CoinToss.py
+import random
+guess=''
+while guess not in ('heads', 'tails'):
+    print('Make a guess for coin toss!Enter heads or tails:')
+    guess=input().lower()
+    toss=random.randint(0,1)#0 is tails,1 is heads
+    if toss==0:
+        toss='tails'
+    elif toss==1:
+        toss='heads'
+    if toss==guess:
+        print('You have got it!')
+    else:
+        print('Nope!Guess again!')
+        guess=input()
+        if toss==guess:
+            print('You got it!')
+        else:
+            print('Nope.You are really bad at this game.')

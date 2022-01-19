@@ -1,0 +1,5 @@
+print("What is your name")
+x=input("your name:")
+print("What is your age")
+y=input("your age:")
+print("So your age is %s and your name is %s"%(x,y))

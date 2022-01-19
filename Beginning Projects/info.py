@@ -1,0 +1,7 @@
+print("Enter your age")
+age=input()
+print("Enter your name")
+name=input()
+print("Enter your weight")
+weight=input()
+print("Your age is %r name is %r weight is %r"%(age,name,weight))
