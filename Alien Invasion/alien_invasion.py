@@ -1,15 +1,12 @@
-from pickle import FALSE
-from re import T
 import sys
-from numpy import False_
 
 import pygame
 
-from settings import Settings
-
-from ship import Ship
-from bullet import Bullet
 from alien import Alien
+from bullet import Bullet
+from settings import Settings
+from ship import Ship
+
 
 class AlienInvasion:
     """Overall class to manage game assets and behaviour."""
@@ -29,7 +26,7 @@ class AlienInvasion:
 
     def _create_fleet(self):
         """Create the fleet of aliens."""
-        #Make an alien
+        # Make an alien
         alien = Alien(self)
         self.aliens.add(alien)
         alien_width = alien.rect.width
@@ -42,17 +39,15 @@ class AlienInvasion:
             alien.rect.x = alien.x
             self.aliens.add(alien)
 
-    
     def run_game(self):
         """Start the main loop for the game"""
         while True:
-            #Watch for keyword and mouse events
+            # Watch for keyword and mouse events
             self._check_events()
             self.ship.update()
             self._update_bullets()
-            #Redraw the screen during each pass through the loop
+            # Redraw the screen during each pass through the loop
             self.update_screen()
-    
 
     def _check_events(self):
         """Respond to keypresses and mouse events"""
@@ -98,13 +93,11 @@ class AlienInvasion:
             self.bullets.add(new_bullet)
 
     def _update_bullets(self):
-        #Get rid of bullets that have disappeared
+        # Get rid of bullets that have disappeared
         self.bullets.update()
         for bullet in self.bullets.copy():
             if bullet.rect.bottom <= 0:
-                self.bullets.remove (bullet)
-        
-
+                self.bullets.remove(bullet)
 
     def update_screen(self):
         """Update images on the screen, and flip to the new screen"""
@@ -113,7 +106,7 @@ class AlienInvasion:
         for bullet in self.bullets.sprites():
             bullet.draw_bullet()
 
-        #Make the most recently drawn screen visible.
+        # Make the most recently drawn screen visible.
         pygame.display.flip()
 
 

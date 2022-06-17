@@ -96,19 +96,19 @@ class disk:
 
 def animate_towers_of_hanoi(num_disks):
     pen = turtle.Turtle()
-    from_tower = Tower('from_tower', -num_disks * 25 - 150)
-    with_tower = Tower('with_tower', 0)
-    to_tower = Tower('to_tower', num_disks * 25 + 150)
-    from_tower.draw(pen)
-    with_tower.draw(pen)
-    to_tower.draw(pen)
+    Tower_1 = Tower('Tower 1', -num_disks * 25 - 150)
+    Tower_2 = Tower('Tower 2', 0)
+    Tower_3 = Tower('Tower 3', num_disks * 25 + 150)
+    Tower_1.draw(pen)
+    Tower_2.draw(pen)
+    Tower_3.draw(pen)
     pen.hideturtle()
     width = 3 + num_disks
     for i in range(num_disks).__reversed__():
-        disk(width, from_tower, i + 1)
+        disk(width, Tower_1, i + 1)
         width -= 1
-    height = from_tower.num_disks
-    animate_move_tower(height, from_tower, to_tower, with_tower)
+    height = Tower_1.num_disks
+    animate_move_tower(height, Tower_1, Tower_3, Tower_2)
     
         
 def animate_move_tower(height, from_tower, to_tower, with_tower):
